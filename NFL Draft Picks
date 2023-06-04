@@ -1,0 +1,30 @@
+#In this SQL I'm querying a database with multiple tables in it to quantify statistics about NFL draft pick data.
+
+# I used Data from the first 3 round of the 2016 NFL Draft
+
+
+#1
+--Determine the names of the first ten players drafted in the 2015 NFL draft
+SELECT * FROM picks WHERE pick_number < 10;
+
+#2
+--Determine if any players were Offensive Guard and went to Louisville
+SELECT * FROM picks WHERE college = "Louisville" AND position = "OG"
+;
+
+#3
+--Determine the total # of quarterbacks in the 2015 NFL draft
+SELECT COUNT(*) AS "Total Quarterbacks in List" FROM picks WHERE position = "QB"
+
+#4
+--Order players name alphabetically
+SELECT name
+FROM "picks"
+ORDER BY name asc
+
+#5
+--Determine the top 10 picks and who they were picked by
+SELECT name, pick_number, picked_by
+FROM picks
+order by pick_number asc
+limit 10; 
